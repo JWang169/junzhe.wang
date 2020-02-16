@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+
+    <!-- CSS CUSTOM -->
+    {% block stylesheet %}
+    {% endblock stylesheet %}
+
+
+    <!--Fonts-->
+{#    <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">#}
+
+   {% block head_block %}{% endblock head_block %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+
+<body>
+<div class="navbar">
+    <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+		<h1 class="brand brand-name navbar-left"><div class="navbar-left">JUNZHE WANG</h1>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' %}">Home</a></li>
+   				<li><a href="{% url 'resume' %}">RESUME</a></li>
+   				<li><a href="{% url 'animation' %}">ANIMATION</a></li>
+    			<li><a href="{% url 'rainbow' %}">RAINBOW</a></li>
+                <li><a href="{% url 'test' %}">CMD</a></li>
+                <li><a href="{% url 'test' %}">TEST</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</div>
+
+
+
+    <div>
+        {% block body_block %}
+
+        {% endblock body_block %}
+    </div>
+<script src="{% static 'js/about.js' %}"></script>
+</body>
+</html>
