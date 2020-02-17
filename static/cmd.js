@@ -1,7 +1,9 @@
 const BLACKLISTED_KEY_CODES = [38];
 const COMMANDS = {
   help:
-    'Supported commands: <span class="code">about</span>, <span class="code">experience</span>, <span class="code">education</span>, <span class="code">skills</span>, <span class="code">contact</span>, <span class="code">chinese</span>',
+    'Supported commands: <span class="code">homepage</span>, <span class="code">about</span>, <span class="code">experience</span>, <span class="code">education</span>, <span class="code">skills</span>, <span class="code">contact</span>, <span class="code">chinese</span>',
+  homepage:
+    "Go back to homepage:<br><a href='../index.html' class='success link'>Homepage</a>",
   about:
     "Hi 👋<br>I'm Junzhe. I’m a 2X yr old graduate student in computer science, currently living in Hoboken. ",
   skills:

@@ -98,6 +98,7 @@ img {
     z-index: 9999;
     letter-spacing: 4px;
     background: #000;
+    display: inline;
 
 }
 .navbar .nav > li > a {
@@ -115,11 +116,14 @@ img {
     font-size: 12px;
     font-family: 'Lobster Two', cursive;
     transition: all 0.6s 0s;
+
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
     color: red !important;
 }
+
+
 
 .loader {
     background: radial-gradient(#222, #000);
