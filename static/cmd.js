@@ -1,18 +1,18 @@
 const BLACKLISTED_KEY_CODES = [38];
 const COMMANDS = {
   help:
-    'Supported commands: <span class="code">about</span>, <span class="code">experience</span>, <span class="code">education</span>, <span class="code">skills</span>, <span class="code">contact</span>',
+    'Supported commands: <span class="code">about</span>, <span class="code">experience</span>, <span class="code">education</span>, <span class="code">skills</span>, <span class="code">contact</span>, <span class="code">chinese</span>',
   about:
-    "Hello 👋<br>I'm Junzhe. I’m a 15 yr old web developer currently living in India. I have a burning passion to want and help others with code that I create. I enjoy the limitless potential of impact that I can have with what I build. It is what pushes me every day to become a better developer. Outside of coding, you can find me eating choclates!",
+    "Hi 👋<br>I'm Junzhe. I’m a 2X yr old graduate student in computer science, currently living in Hoboken. ",
   skills:
-    '<span class="code">Languages:</span> Python, HTML, CSS, JavaScript<br><span class="code">Technologies:</span> Git, SQL<br><span class="code">Frameworks:</span> React.js, Vue.js, Django',
+    '<span class="code">Languages:</span> Python, JAVA, JavaScript, HTML, CSS<br><span class="code">Technologies:</span> Git, SQL<br><span class="code">Frameworks:</span> React.js, Vue.js, Django<span class="code">,<br>Machine Learning:</span>Natural Language Processing, Computer Vision<br>',
   education:
-    "St. Dominic's Academy, India<br>Higher Secondary — Computer Science",
-  resume: "<a href='./resume.pdf' class='success link'>resume.pdf</a>",
-  experience: "No Experience😥",
-  chinese: "哈喽我是王君哲，前机械工程师，铁三运动员。 其实我就是个程序员。 喝的是咖啡，写的是代码。",
+    "Stevens Institute of Technology — Master of Science in Computer Science<br>Nanjing University of Aeronautics and Astronautics - Bachelor of Engineering in Mechanical Engineering and Automation",
+  resume: "<a href='resume.html' class='success link'>resume</a>",
+  experience: "Jan. 2020 - Present: Teaching Assistant for Natural Language Processing Course in Stevens Institute of Technology<br>May 2019 - Present: Quantitative Analyst and Risk Management Intern in Moore Capital Management<br>Oct. 2018 - May 2019: Graduate Assistant for the Office of Graduate Admissions in Stevens Institute of Technology<br>Aug. 2015 - Aug. 2017:  Electromechanical Engineer in Shenyang Aviation Industry Corporation of China<br>",
+  chinese: "哈喽! 我是王君哲，前机械工程师，铁三运动员。做一个早睡早起的程序员。有多少咖啡就能写多少代码。",
   contact:
-    "You can contact me on any of following links:<br><a href='https://www.facebook.com/jatin.rao.51/' class='success link'>Facebook</a> ,<a href='https://www.instagram.com/jatin.codes/' class='success link'>Instagram</a>, <a href='https://www.twitter.com/jatinn_r/' class='success link'>Twitter</a>"
+    "You can contact me by LinkedIn:<br><a href='https://www.linkedin.com/in/junzhe-joey-wang-55902b170/' class='success link'>"
 };
 let userInput, terminalOutput;
 
