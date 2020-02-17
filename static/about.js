@@ -19,7 +19,7 @@ var initDot = document.getElementById("loading");
        var message = "RUNNING RESUME FOR JUNZHE WANG";
        var $identityDiv = $("#identity-results");
        var $name = "NAME: JUNZHE WANG";
-       var $Alias = "ALSO KNOWN AS: JOEY";
+       var $alias = "ALSO KNOWN AS: JOEY";
        var $intern = "RISK MANAGEMENT AND QUANTITATIVE TRADING RESEARCH INTERN AT MOORE CAPITAL MANAGEMENT";
        var $ta = "TEACHING ASSISTANT FOR NATURAL LANGUAGE PROCESSING AT STEVENS INSTITUTE OF TECHNOLOGY";
        // var $occupation  = "AREAS: FULL-STACK DEVELOPMENT | MACHINE LEARNING ENGINEER | QUANTITATIVE RESEARCH";
@@ -89,8 +89,8 @@ var initDot = document.getElementById("loading");
                }, 2500);
             }
             function initAlias(i){
-                  $("#alias").addClass("sign cursor").text($Alias.substring(0, i));
-                     if(i < $Alias.length){
+                  $("#alias").addClass("sign cursor").text($alias.substring(0, i));
+                     if(i < $alias.length){
                         setTimeout(function(){
                            initAlias(i + 1);   
                         }, 35);
@@ -329,3 +329,7 @@ var initDot = document.getElementById("loading");
    }, 1500);
 
 initProgram()
+
+
+
+

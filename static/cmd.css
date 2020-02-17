@@ -114,8 +114,8 @@ p {
 
 .terminal-bar {
     background-color: #eae8e9;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     display: flex;
     position: relative;
 }
@@ -132,8 +132,8 @@ p {
 .icon-btn {
     border-radius: 50%;
     margin-top: 7px;
-    height: 15px;
-    width: 15px;
+    height: 24px;
+    width: 24px;
     margin-bottom: 0.5rem;
 }
 
@@ -164,7 +164,7 @@ p {
 .terminal-window {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-    height: 254px;
+    height: 280px;
     padding: .5rem 0rem 0rem .5rem;
     display: flex;
     flex-direction: column;
