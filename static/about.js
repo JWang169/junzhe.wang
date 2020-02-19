@@ -5,14 +5,14 @@ var initDot = document.getElementById("loading");
        } else {
            initDot.innerHTML += ".";
        }
-   }, 350); // Dot Speed
+   }, 150); // Dot Speed
 
    var $loadingMessage = $('#loadingH1');
     
    setTimeout(function() {
          clearInterval(loading);
          $loadingMessage.hide();
-      }, 1500);
+      }, 500);
    
    var initProgram = setTimeout(function(){
        var greeting = "GREETINGS FROM HOBOKEN";
@@ -52,7 +52,7 @@ var initDot = document.getElementById("loading");
             if(i < message.length){
                 setTimeout(function(){
                     initIdentityResults(i + 1);
-                }, 35);   
+                }, 8);   
             }else{
                $('#message').removeClass("cursor");
                var loadingResume = function(){
@@ -66,9 +66,9 @@ var initDot = document.getElementById("loading");
                           setTimeout(function() {
                               clearInterval(loadingAlpha);
                               $("#loadingMessage2").hide();
-                           }, 2000);
+                           }, 500);
                       }
-                  }, 350);  // Dot Speed
+                  }, 50);  // Dot Speed
                };
                loadingResume();
                function initName(i){
@@ -76,29 +76,29 @@ var initDot = document.getElementById("loading");
                      if(i < $name.length){
                         setTimeout(function(){
                            initName(i + 1);   
-                        }, 35);
+                        }, 8);
                      }else{
                         $("#name").removeClass("cursor");
                         setTimeout(function() {
                            initAlias(0);
-                        }, 1500);      
+                        }, 500);      
                      }
                }
                setTimeout(function() {
                   initName(0);
-               }, 2500);
+               }, 500);
             }
             function initAlias(i){
                   $("#alias").addClass("sign cursor").text($alias.substring(0, i));
                      if(i < $alias.length){
                         setTimeout(function(){
                            initAlias(i + 1);   
-                        }, 35);
+                        }, 8);
                      }else{
                         $("#alias").removeClass("cursor");
                         setTimeout(function() {
                            initIntern(0);
-                        }, 1500);
+                        }, 500);
                      }
             }
             function initIntern(i){
@@ -106,12 +106,12 @@ var initDot = document.getElementById("loading");
                      if(i < $intern.length){
                         setTimeout(function(){
                            initIntern(i + 1);
-                        }, 35);
+                        }, 8);
                      }else{
                         $("#intern").removeClass("cursor");
                         setTimeout(function() {
                            initTa(0);
-                        }, 1500);
+                        }, 500);
                      }
             }
             function initTa(i){
@@ -119,12 +119,12 @@ var initDot = document.getElementById("loading");
                      if(i < $ta.length){
                         setTimeout(function(){
                            initTa(i + 1);
-                        }, 35);
+                        }, 8);
                      }else{
                         $("#ta").removeClass("cursor");
                         setTimeout(function() {
                            initEducation(0);
-                        }, 1500);
+                        }, 500);
                      }
             }
             function initEducation(i){
@@ -133,12 +133,12 @@ var initDot = document.getElementById("loading");
                      if(i < $Education.length){
                         setTimeout(function(){
                            initEducation(i + 1);
-                        }, 35);
+                        }, 8);
                      }else{
                         $("#education").removeClass("cursor");
                         setTimeout(function() {
                            initStevens(0);
-                        }, 1500);
+                        }, 500);
                      }
             }
             function initStevens(i){
@@ -146,12 +146,12 @@ var initDot = document.getElementById("loading");
                      if(i < $Stevens.length){
                         setTimeout(function(){
                            initStevens(i + 1);
-                        }, 35);
+                        }, 8);
                      }else{
                         $("#stevens").removeClass("cursor");
                         setTimeout(function() {
                            initNuaa(0);
-                        }, 1500);
+                        }, 500);
                      }
             }
             function initNuaa(i){
@@ -159,12 +159,12 @@ var initDot = document.getElementById("loading");
                      if(i < $NUAA.length){
                         setTimeout(function(){
                            initNuaa(i + 1);
-                        }, 35);
+                        }, 8);
                      }else{
                         $("#nuaa").removeClass("cursor");
                         setTimeout(function() {
                            initFullstack(0);
-                        }, 1500);
+                        }, 500);
                      }
             }
             function initFullstack(i){
@@ -173,12 +173,12 @@ var initDot = document.getElementById("loading");
                      if(i < $Fullstack.length){
                         setTimeout(function(){
                            initFullstack(i + 1);
-                        }, 35);
+                        }, 8);
                      }else{
                         $("#fullstack").removeClass("cursor");
                         setTimeout(function() {
                            initCSSFrameworks(0);
-                        }, 1500);
+                        }, 500);
                      }
             }
             function initCSSFrameworks(i){
@@ -186,12 +186,12 @@ var initDot = document.getElementById("loading");
                      if(i < $CSSFrameworks.length){
                         setTimeout(function(){
                            initCSSFrameworks(i + 1);
-                        }, 35);
+                        }, 8);
                      }else{
                         $("#css-frameworks").removeClass("cursor");
                         setTimeout(function() {
                            initJSLibs(0);
-                        }, 1500);
+                        }, 500);
                      }
             }
             function initJSLibs(i){
@@ -199,12 +199,12 @@ var initDot = document.getElementById("loading");
                      if(i < $JSLibs.length){
                         setTimeout(function(){
                            initJSLibs(i + 1);
-                        }, 35);
+                        }, 8);
                      }else{
                         $("#js-libs").removeClass("cursor");
                         setTimeout(function() {
                            initJSFrameworks(0);
-                        }, 1500);
+                        }, 500);
                      }
             }
             function initJSFrameworks(i){
@@ -212,12 +212,12 @@ var initDot = document.getElementById("loading");
                   if(i < $JSFrameworks.length){
                      setTimeout(function(){
                          initJSFrameworks(i + 1);
-                     }, 35);
+                     }, 8);
                   }else{
                      $('#js-frameworks').removeClass("cursor");
                         setTimeout(function() {
                            initPYFramework(0);
-                        }, 1500);
+                        }, 500);
                   }
             }
             function initPYFramework(i){
@@ -225,12 +225,12 @@ var initDot = document.getElementById("loading");
                   if(i < $PYFramework.length){
                      setTimeout(function(){
                          initPYFramework(i + 1);
-                     }, 35);
+                     }, 8);
                   }else{
                      $('#py-framework').removeClass("cursor");
                         setTimeout(function() {
                            initJAVAFramework(0);
-                        }, 1500);
+                        }, 500);
                   }
             }
 
@@ -239,12 +239,12 @@ var initDot = document.getElementById("loading");
                   if(i < $JAVAFramework.length){
                      setTimeout(function(){
                          initJAVAFramework(i + 1);
-                     }, 35);
+                     }, 8);
                   }else{
                      $('#java-framework').removeClass("cursor");
                         setTimeout(function() {
                            initDATAbase(0);
-                        }, 1500);
+                        }, 500);
                   }
             }
             function initDATAbase(i){
@@ -252,12 +252,12 @@ var initDot = document.getElementById("loading");
                   if(i < $DATAbase.length){
                      setTimeout(function(){
                          initDATAbase(i + 1);
-                     }, 35);
+                     }, 8);
                   }else{
                      $('#database').removeClass("cursor");
                      setTimeout(function() {
                            initNatural(0);
-                        }, 1500);
+                        }, 500);
                   }
             }
 
@@ -267,12 +267,12 @@ var initDot = document.getElementById("loading");
                   if(i < $Natural.length){
                      setTimeout(function(){
                          initNatural(i + 1);
-                     }, 35);
+                     }, 8);
                   }else{
                      $('#natural').removeClass("cursor");
                      setTimeout(function() {
                            initTasks(0);
-                        }, 1500);
+                        }, 500);
                   }
             }
             function initTasks(i){
@@ -280,12 +280,12 @@ var initDot = document.getElementById("loading");
                   if(i < $Tasks.length){
                      setTimeout(function(){
                          initTasks(i + 1);
-                     }, 35);
+                     }, 8);
                   }else{
                      $('#tasks').removeClass("cursor");
                      setTimeout(function() {
                            initLibraries(0);
-                        }, 1500);
+                        }, 500);
                   }
             }
             function initLibraries(i){
@@ -293,12 +293,12 @@ var initDot = document.getElementById("loading");
                   if(i < $Libraries.length){
                      setTimeout(function(){
                          initLibraries(i + 1);
-                     }, 35);
+                     }, 8);
                   }else{
                      $('#libraries').removeClass("cursor");
                      setTimeout(function() {
                            initNNetworks(0);
-                        }, 1500);
+                        }, 500);
                   }
             }
 
@@ -307,7 +307,7 @@ var initDot = document.getElementById("loading");
                 if (i < $Tasks.length) {
                     setTimeout(function () {
                         initNNetworks(i + 1);
-                    }, 35);
+                    }, 8);
                 } else {
                 }
               }
@@ -318,7 +318,7 @@ var initDot = document.getElementById("loading");
             if(i < greeting.length){
                 setTimeout(function(){
                     initProgramAlpha(i + 1);
-                }, 35);   
+                }, 8);   
             }else{
                $("#greeting").removeClass("cursor");
                initIdentityResults(0);
@@ -326,7 +326,7 @@ var initDot = document.getElementById("loading");
          }
          initProgramAlpha(0)
    
-   }, 1500);
+   }, 500);
 
 initProgram()
 
