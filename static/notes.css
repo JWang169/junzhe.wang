@@ -102,7 +102,7 @@ main .sidebar h2 {
   border-bottom: 2px solid #2F2F2F;
 }
 main .sidebar h2:after {
-  content: "The SideBar";
+  content: "Go to";
 }
 main .sidebar ul {
   margin: 0;
@@ -132,7 +132,7 @@ main .sidebar a {
   transition: all 1s ease;
 }
 main .sidebar a:before {
-  content: "SideBar";
+  content: "\02708" ;
 }
 main .sidebar a:hover {
   color: #81A4D4;
