@@ -44,7 +44,7 @@ var initDot = document.getElementById("loading");
 
        var $Mobile = "IOS DEVELOPMENT";
          var $Tasks = "TASKS: TEXT CLASSIFICATION | MACHINE TRANSLATION | NATURAL LANGUAGE GENERATION";
-         var $Libraries = "LIBRARYIES: KERAS | NLTK| SCIKIT-LEARN | TENSORFLOW";
+         var $Libraries = "LIBRARIES: KERAS | NLTK| SCIKIT-LEARN | TENSORFLOW";
          var $NNetworks = "NEURAL NETWORK ARCHITECTURE: CNN | GRU | LSTM";
 
       function initIdentityResults(i){
