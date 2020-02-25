@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<meta charset="UTF-8">
+<html>
+<head>
+<title>/Users/joey/Desktop/Java/repo/interfaceDemo.java</title>
+<style>
+.highlight .hll { background-color: #ffffcc }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+.highlight * { font-family: monospace; }
+.highlight { font-size: 90%; }
+.highlight { line-height: normal; }
+.highlight .err { border: none !important }
+</style>
+</head>
+<body onload="window.print();">
+<div class="highlight"><pre><span class="lineno">  1</span> <span class="cm">/*</span>
+<span class="lineno">  2</span> <span class="cm">abstract class fulfills Polymorphism, so is interface</span>
+<span class="lineno">  3</span> <span class="cm">sometimes abstract class is not enough, because one class cannot inherit multiple class </span>
+<span class="lineno">  4</span> <span class="cm">For example, if we need method Hunt() for class Tiger, but it cannot be added to Mammal class, since Goat do not hunt</span>
+<span class="lineno">  5</span> <span class="cm">Tiger needs to implement Hunt() from somewhere else, which is interface.</span>
+<span class="lineno">  6</span> 
+<span class="lineno">  7</span> <span class="cm">*/</span>
+<span class="lineno">  8</span> 
+<span class="lineno">  9</span> <span class="kd">interface</span> <span class="nc">Huntable</span><span class="o">{</span>
+<span class="lineno"> 10</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hunt</span><span class="o">(</span><span class="n">Animal</span> <span class="n">a</span><span class="o">);</span>
+<span class="lineno"> 11</span> <span class="o">}</span>
+<span class="lineno"> 12</span> 
+<span class="lineno"> 13</span> 
+<span class="lineno"> 14</span> <span class="c1">// define the father abstract class</span>
+<span class="lineno"> 15</span> <span class="c1">// we only define the name of the methods, not the body</span>
+<span class="lineno"> 16</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Animal</span><span class="o">{</span>
+<span class="lineno"> 17</span>     <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">();</span>
+<span class="lineno"> 18</span>     <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="n">String</span> <span class="n">destination</span><span class="o">);</span>
+<span class="lineno"> 19</span>     <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">drink</span><span class="o">();</span>
+<span class="lineno"> 20</span> <span class="o">}</span>
+<span class="lineno"> 21</span> 
+<span class="lineno"> 22</span> <span class="c1">// define a sub abstract class, which inherit Animal</span>
+<span class="lineno"> 23</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Mammal</span> <span class="kd">extends</span> <span class="n">Animal</span><span class="o">{</span>
+<span class="lineno"> 24</span>     <span class="c1">// inherit all methods from Animal;</span>
+<span class="lineno"> 25</span>     <span class="c1">// you can also add new methods here </span>
+<span class="lineno"> 26</span>     <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">feedChildren</span><span class="o">();</span>
+<span class="lineno"> 27</span> <span class="o">}</span>
+<span class="lineno"> 28</span> 
+<span class="lineno"> 29</span> 
+<span class="lineno"> 30</span> <span class="c1">// define another sub abstract class</span>
+<span class="lineno"> 31</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Reptile</span> <span class="kd">extends</span> <span class="n">Animal</span><span class="o">{</span>
+<span class="lineno"> 32</span>     <span class="c1">// inherit all methods from Animal;</span>
+<span class="lineno"> 33</span>     <span class="c1">// you can also add new methods here </span>
+<span class="lineno"> 34</span> <span class="o">}</span>
+<span class="lineno"> 35</span> 
+<span class="lineno"> 36</span> 
+<span class="lineno"> 37</span> <span class="c1">// define a class Tiger. it has to rewrite all the abstract methods from the super class</span>
+<span class="lineno"> 38</span> <span class="kd">class</span> <span class="nc">Tiger</span> <span class="kd">extends</span> <span class="n">Mammal</span> <span class="kd">implements</span> <span class="n">Huntable</span><span class="o">{</span>
+<span class="lineno"> 39</span>     <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Tiger&quot;</span><span class="o">;</span>
+<span class="lineno"> 40</span>     <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(){</span>
+<span class="lineno"> 41</span>         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">;</span>
+<span class="lineno"> 42</span>     <span class="o">}</span>
+<span class="lineno"> 43</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="n">String</span> <span class="n">destination</span><span class="o">){</span>
+<span class="lineno"> 44</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;A tiger runs to &quot;</span> <span class="o">+</span> <span class="n">destination</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="o">);</span>
+<span class="lineno"> 45</span>     <span class="o">}</span>
+<span class="lineno"> 46</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drink</span><span class="o">(){</span>
+<span class="lineno"> 47</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;A tiger drinks water&quot;</span><span class="o">);</span>
+<span class="lineno"> 48</span>     <span class="o">}</span>
+<span class="lineno"> 49</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">feedChildren</span><span class="o">(){</span>
+<span class="lineno"> 50</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Tigers breastfeeds.&quot;</span><span class="o">);</span>
+<span class="lineno"> 51</span>     <span class="o">}</span>
+<span class="lineno"> 52</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hunt</span><span class="o">(</span><span class="n">Animal</span> <span class="n">a</span><span class="o">){</span>
+<span class="lineno"> 53</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Tiger caught a &quot;</span> <span class="o">+</span> <span class="n">a</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; and ate it.&quot;</span><span class="o">);</span>
+<span class="lineno"> 54</span>     <span class="o">}</span>
+<span class="lineno"> 55</span> <span class="o">}</span>
+<span class="lineno"> 56</span> 
+<span class="lineno"> 57</span> 
+<span class="lineno"> 58</span> <span class="c1">// define another class goat. it also extends mammal </span>
+<span class="lineno"> 59</span> <span class="kd">class</span> <span class="nc">Goat</span> <span class="kd">extends</span> <span class="n">Mammal</span><span class="o">{</span>
+<span class="lineno"> 60</span>         <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Goat&quot;</span><span class="o">;</span>
+<span class="lineno"> 61</span>     <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(){</span>
+<span class="lineno"> 62</span>         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">;</span>
+<span class="lineno"> 63</span>     <span class="o">}</span>
+<span class="lineno"> 64</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="n">String</span> <span class="n">destination</span><span class="o">){</span>
+<span class="lineno"> 65</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;A goat runs to &quot;</span> <span class="o">+</span> <span class="n">destination</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="o">);</span>
+<span class="lineno"> 66</span>     <span class="o">}</span>
+<span class="lineno"> 67</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drink</span><span class="o">(){</span>
+<span class="lineno"> 68</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;A goat drinks water&quot;</span><span class="o">);</span>
+<span class="lineno"> 69</span>     <span class="o">}</span>
+<span class="lineno"> 70</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">feedChildren</span><span class="o">(){</span>
+<span class="lineno"> 71</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Goats breastfeeds.&quot;</span><span class="o">);</span>
+<span class="lineno"> 72</span>     <span class="o">}</span>
+<span class="lineno"> 73</span> <span class="o">}</span>
+<span class="lineno"> 74</span> 
+<span class="lineno"> 75</span> <span class="kd">class</span> <span class="nc">Snake</span> <span class="kd">extends</span> <span class="n">Reptile</span> <span class="kd">implements</span> <span class="n">Huntable</span><span class="o">{</span>
+<span class="lineno"> 76</span>     <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Snake&quot;</span><span class="o">;</span>
+<span class="lineno"> 77</span>     <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(){</span>
+<span class="lineno"> 78</span>         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">;</span>
+<span class="lineno"> 79</span>     <span class="o">}</span>
+<span class="lineno"> 80</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="n">String</span> <span class="n">destination</span><span class="o">){</span>
+<span class="lineno"> 81</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;A Snake crawls to &quot;</span> <span class="o">+</span> <span class="n">destination</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="o">);</span>
+<span class="lineno"> 82</span>     <span class="o">}</span>
+<span class="lineno"> 83</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drink</span><span class="o">(){</span>
+<span class="lineno"> 84</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;A snake drinks water. &quot;</span><span class="o">);</span>
+<span class="lineno"> 85</span>     <span class="o">}</span>
+<span class="lineno"> 86</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hunt</span><span class="o">(</span><span class="n">Animal</span> <span class="n">a</span><span class="o">){</span>
+<span class="lineno"> 87</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;A Snake caught a &quot;</span> <span class="o">+</span> <span class="n">a</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; and ate it.&quot;</span><span class="o">);</span>
+<span class="lineno"> 88</span>     <span class="o">}</span>
+<span class="lineno"> 89</span>     <span class="c1">// that&#39;s it. because snake extends Reptile, no feedChildren method in Reptile;</span>
+<span class="lineno"> 90</span> <span class="o">}</span>
+<span class="lineno"> 91</span> 
+<span class="lineno"> 92</span> <span class="c1">// create a farmer class</span>
+<span class="lineno"> 93</span> <span class="kd">class</span> <span class="nc">Farmer</span><span class="o">{</span>
+<span class="lineno"> 94</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">bringWater</span><span class="o">(</span><span class="n">String</span> <span class="n">destination</span><span class="o">){</span>
+<span class="lineno"> 95</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;A farmer brings water to &quot;</span> <span class="o">+</span> <span class="n">destination</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="o">);</span>
+<span class="lineno"> 96</span>     <span class="o">}</span>
+<span class="lineno"> 97</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">bringAnimal</span><span class="o">(</span><span class="n">Animal</span> <span class="n">a</span><span class="o">){</span>
+<span class="lineno"> 98</span>         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;A farmer brings &quot;</span> <span class="o">+</span> <span class="n">a</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; to the feeding room.&quot;</span><span class="o">);</span>
+<span class="lineno"> 99</span>     <span class="o">}</span>
+<span class="lineno">100</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">feedWater</span><span class="o">(</span><span class="n">Animal</span> <span class="n">a</span><span class="o">){</span>
+<span class="lineno">101</span>         <span class="k">this</span><span class="o">.</span><span class="na">bringWater</span><span class="o">(</span><span class="s">&quot;feeding room&quot;</span><span class="o">);</span>
+<span class="lineno">102</span>         <span class="n">a</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="s">&quot;feeding room&quot;</span><span class="o">);</span>
+<span class="lineno">103</span>         <span class="n">a</span><span class="o">.</span><span class="na">drink</span><span class="o">();</span>
+<span class="lineno">104</span>     <span class="o">}</span>
+<span class="lineno">105</span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">feedAnimal</span><span class="o">(</span><span class="n">Animal</span> <span class="n">ht</span><span class="o">,</span> <span class="n">Animal</span> <span class="n">ct</span><span class="o">){</span>
+<span class="lineno">106</span>         <span class="k">this</span><span class="o">.</span><span class="na">bringAnimal</span><span class="o">(</span><span class="n">ct</span><span class="o">);</span>
+<span class="lineno">107</span>         <span class="n">ht</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="s">&quot;Feeding room. &quot;</span><span class="o">);</span>
+<span class="lineno">108</span>         <span class="n">Huntable</span> <span class="n">htb</span> <span class="o">=</span> <span class="o">(</span><span class="n">Huntable</span><span class="o">)</span> <span class="n">ht</span><span class="o">;</span>  <span class="c1">// an interface will allow all class to implement it. </span>
+<span class="lineno">109</span>         <span class="n">htb</span><span class="o">.</span><span class="na">hunt</span><span class="o">(</span><span class="n">ct</span><span class="o">);</span>
+<span class="lineno">110</span>     <span class="o">}</span>
+<span class="lineno">111</span> <span class="o">}</span>
+<span class="lineno">112</span> 
+<span class="lineno">113</span> 
+<span class="lineno">114</span> <span class="kd">class</span> <span class="nc">interfaceDemo</span><span class="o">{</span>
+<span class="lineno">115</span>     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+<span class="lineno">116</span>         <span class="n">Farmer</span> <span class="n">fm</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Farmer</span><span class="o">();</span>
+<span class="lineno">117</span>         <span class="n">Snake</span> <span class="n">sn</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Snake</span><span class="o">();</span>
+<span class="lineno">118</span>         <span class="n">Goat</span> <span class="n">gt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Goat</span><span class="o">();</span>
+<span class="lineno">119</span>         <span class="n">Tiger</span> <span class="n">tg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tiger</span><span class="o">();</span>
+<span class="lineno">120</span>         <span class="n">fm</span><span class="o">.</span><span class="na">feedWater</span><span class="o">(</span><span class="n">sn</span><span class="o">);</span> <span class="c1">// the input of this function belongs to Animal abstract class </span>
+<span class="lineno">121</span>         <span class="c1">// fm.feedWater(gt);</span>
+<span class="lineno">122</span>         <span class="c1">// tg.feedChildren();</span>
+<span class="lineno">123</span>         <span class="n">fm</span><span class="o">.</span><span class="na">feedAnimal</span><span class="o">(</span><span class="n">tg</span><span class="o">,</span> <span class="n">gt</span><span class="o">);</span>
+<span class="lineno">124</span>     <span class="o">}</span>
+<span class="lineno">125</span> 
+<span class="lineno">126</span> <span class="o">}</span>
+</pre></div>
+
+</body>
+</html>
