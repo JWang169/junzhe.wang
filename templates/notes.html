@@ -42,13 +42,44 @@
     </div>
     <div class="block">
       <h3>Dijkstra's Algorithm</h3>
-      <p>It is used for searching for the shortest path in a graph.</p>
+      <p>This is to solve single source shortest path problem</p>
       <p>A minimazation problem is an optimization problem. Optimization problem can be solved using greedy method. Greedy method says that a problem should be solved in stages by taking one step at a time and considering on input at a time to get an optimal solution. There are predefined procedures, and we follow that procedure to get an optimal result. So Dijkstra gives a procedure for getting an optimal solution that is minimum result, aka the shortest path. </p>
       <p>Dijkstra can work on both directed and non directed graphs. </p>
+      <p>Relexation</p>
+      <blockquote><code>if d[u] + c(u, v) < d[v]:
+              d[v] = d[u] + c(u,v)
+      </code></blockquote>
+      <p>Process: 
+          <ol>
+            <li>Select a start vertex. </li>
+            <li>Compute the distance to its connected vertices. </li>
+            <li>Set the connected node with the shortest distance as the start point, and updates its neighbors. </li>
+            <li>After all the vertices are updated as the start point, ends it. </li>
+          </ol>
+      </p>
+      <p>Time complexity.
+        <ul>
+            We do not know how the vertices are connected to their neighbors. The worst scenario, all vertices connect to each other, then we have to update all vertices for n time, where n is the amount of vertices in the graph. The time complexity is O(n^2).
+        </ul>
+      </p>
+      <p>Drawbacks</p>
+      <ul>
+        <li>
+          If there is a negtive edge in the graph, it might not be correct. 
+        </li>
+      </ul>
     </div>
     <div class="block">
-      <h3>Bellman's Algorithm</h3>
-      <p></p>
+      <h3>Bellman-Ford Algorithm</h3>
+      <p>This solves similar problems as Dijkstra's. </p>
+      <p>Process:
+        <ol>
+          <li>Initialize distances from source to all vertices as infinite. </li>
+          <li>Relex each edge. (Same relexation as Dijkstra's). Do it for (v-1) times, where v is the number of vertices in given graph. </li>
+          <li>Relex again. If there is any change, there is a negtive circle in the graph. </li>
+
+        </ol>
+      </p>
     </div>
     <div class="block">
       <div><br /><img src='http://placehold.it/350x350' /></div><br>
