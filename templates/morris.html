@@ -2,80 +2,71 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - SSH Technical Document</title>
-  <link rel="stylesheet" href="./algos.css">
+  <title>Morris Traversal</title>
+  <link rel="stylesheet" href="../static/algos.css">
 
 </head>
 <body>
-<!-- partial:index.partial.html -->
 <nav id="navbar">
-  <header>Dijkstra's Algorithm</header>
+  <header>Morris Traversal</header>
   <ul>
-    <li><a class="nav-link" href="#Introduction">Introduction</a>
-    </li>
-    <li><a class="nav-link" href="#Applications">Applications</a></li>
-    <li><a class="nav-link" href="#Your_First_Connection">Your First Connection</a></li>
-    <li><a class="nav-link" href="#Commands_To_Avoid">Commands To Avoid</a></li>
-    <li><a class="nav-link" href="#Cron">Cron</a></li>
-    <li><a class="nav-link" href="#Links">Links</a></li>
+    <li><a class="nav-link" href="../index.html">HOMEPAGE</a></li>
+    <li><a class="nav-link" href="notes.html">Notes</a></li>
+    <li><a class="nav-link" href="dijstra.html">Dijstra's Algorithm</a></li>
   </ul>
 </nav>
 
 <main id="main-doc">
-  <section class="main-section" id="Introduction">
+  <section class="main-section">
     <header>Introduction</header>
-    <p>When it comes to dealing with larger operations, learning how to connect remotely to servers is important. <strong>Secure Shell (SSH)</strong> gives you the ability to connect securely over unsecure networks. Knowing how to navigate this tool will aide you massively in your journey.</p>
+    <p><strong>Morris traversal</strong> is a tree traversal algorithms that allows you to implement traversal without using stack or recursion. In this traversal, we use likes to link node with its predecessor. </p>
+  </section>
+  <section class="main-section">
+    <header>Steps</header>
+    <p>Take inorder traversal for example.
+      <ol>
+        <li>Initialize the root as current node. </li>
+        <li>While current is not None, check if current has a left node. </li>
+        <li>If current does not have a left child, we can print this node and then update it to point to its right node. </li>
+        <li>If current has a left child, we find the most right child of current as the predecessor, and make the right child of the predecessor to current. (This is to link the most right child to root. Since the most right child is the last node we visit on the left side of the current root, we need to go back to root after visiting the last node on the left. )</li>
+        <li>Update current to its left node. </li>
+      </ol>
+    </p>
   </section>
   
-  <section class="main-section" id="Applications">
-    <header>Applications</header>
-    <p>Terminals are typically used for these connections, though some applications (I.E. Text Editors/IDEs) have built-in functionality. Every operating system comes with a terminal, and at times the default will serve you well out of the box (see the macOS Terminal).</p>
-    <p>Here's a list of a few popular applications.</p>
-    <li>PuTTY (Linux/Mac/Windows)</li>
-    <li>Cyberduck (Mac/Windows)</li>
-    <li>Terminal.app (Mac)</li>
-    <li>OpenSSH (Unix)</li>
-    <li>Powershell (Windows)</li>
-    <li>WinSCP (Windows)</li>
-    <li>Tera Term Pro (Windows)</li>
-  </section>
+  <section class="main-section">
+    <header>Code</header>
+    <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">morris</span>(root):
+    result <span style="color: #666666">=</span> []
+    <span style="color: #008000; font-weight: bold">while</span> root:
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> root<span style="color: #666666">.</span>left:
+            result<span style="color: #666666">.</span>append(root<span style="color: #666666">.</span>val)
+            root <span style="color: #666666">=</span> root<span style="color: #666666">.</span>right
+        <span style="color: #008000; font-weight: bold">else</span>:
+            predecessor <span style="color: #666666">=</span> root<span style="color: #666666">.</span>left
+            <span style="color: #008000; font-weight: bold">while</span> predecessor<span style="color: #666666">.</span>right <span style="color: #AA22FF; font-weight: bold">and</span> predecessor<span style="color: #666666">.</span>right <span style="color: #666666">!=</span> root:
+                predecessor <span style="color: #666666">=</span> predecessor<span style="color: #666666">.</span>right
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> predecessor<span style="color: #666666">.</span>right:
+                predecessor<span style="color: #666666">.</span>right <span style="color: #666666">=</span> root
+                root <span style="color: #666666">=</span> root<span style="color: #666666">.</span>left
+            <span style="color: #408080; font-style: italic"># predecessor.right == current, meaning we&#39;re going back to the root</span>
+            <span style="color: #008000; font-weight: bold">else</span>:
+                predecessor<span style="color: #666666">.</span>right <span style="color: #666666">=</span> <span style="color: #008000">None</span>
+                result<span style="color: #666666">.</span>append(root<span style="color: #666666">.</span>val)
+                root <span style="color: #666666">=</span> root<span style="color: #666666">.</span>right
+                
+    <span style="color: #008000; font-weight: bold">return</span> result
+</pre></div>
+
   
-  <section class="main-section" id="Your_First_Connection">
-    <header>Your First Connection</header>
-    <p>What throws a lot of people off initially is how the connection command is to be entered. Simply type in the following.</p>
-    <code>ssh user@ipaddress</code>
-    <p>In practice your actual input should look more like the following:</p>
-    <code>ssh admin@192.168.1.1</code>
-    <p>After hitting enter/return and a connection is made successfully you will be prompted for the password and it should appear below the previous command you just sent.</p>
-    <code>admin@192.168.1.1's password:█</code>
-    <p>If the password is correct, you'll back taken to the root directory of your server. If it's incorrect, you'll either be prompted again or will need to resend the ssh login info, including the IP.</p>
-  </section>
-  
-  <section class="main-section" id="Commands_To_Avoid">
-    <header>Commands To Avoid</header>
-    <p>These commands will remove directories and/or files. Use them with caution.</p>
-    <code>rm -rf /path/</code><br>
-    <code>rm -r /path/</code><br>
-    <code>rm -f /path/</code><br>
-  </section>
-  
-  <section class="main-section" id="Cron">
-    <header>Cron</header>
-    <p>Accessing the server allows you to directory work with the Cron itself. It is a time based job scheduler that administrators use to execute jobs automatically at set intervals. Updating memberships daily to account for rollovers (current to grace and grace to expired) for example. One useful command I've found personally helpful for checking and locating the Cron is:</p>
-    <code>ps -ef | grep cron | grep -v grep</code><br>
-    <p>Learning to properly locate the Cron and create Crontabs is a valuable skill. Don't be afraid to Google more about creating Crontabs.</p>
-  </section>
-  
-  <section class="main-section" id="Links"> 
-    <header>Links</header>
+  <section class="main-section"> 
+    <header>Related Problems</header>
     <p>For further reading, here are a few resources used in the creation of this document.</p>
     <li>University of Arizona <a href="https://softwarelicense.arizona.edu/ssh-clients-windows-and-mac" target="_blank">list</a> of SSH clients for Linux, Mac, and Windows.</li>
     <li><a href="https://en.wikipedia.org/wiki/Secure_Shell">Secure Shell</a> on Wikipedia.</li>
      <li><a href="https://en.wikipedia.org/wiki/Cron">Cron</a> on Wikipedia.</li>
   </section>
 </main>
-<!-- partial -->
-  <script  src="./script.js"></script>
 
 </body>
 </html>
