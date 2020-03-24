@@ -2,13 +2,13 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Dijstra's Algorithm</title>
+  <title>Bellman-Ford</title>
   <link rel="stylesheet" href="../static/algos.css">
 
 </head>
 <body>
 <nav id="navbar">
-  <header>Dijstra's Algorithm</header>
+  <header>Bellman-Ford</header>
   <ul>
     <li><a class="nav-link" href="../index.html">HOMEPAGE</a></li>
     <li><a class="nav-link" href="notes.html">Notes</a></li>
@@ -22,22 +22,19 @@
 <main id="main-doc">
   <section class="main-section">
     <header>Introduction</header>
-    <p><strong>Dijstra's Algorithm</strong> is aim to solve single source shortest path problem. </p>
-    <p>The key point of Dijstra and Bellman is Relexation: </p>
+    <p><strong>Bellman-Ford</strong> solves similar problems as Dijkstra's. With the same relexation: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">    <span style="color: #008000; font-weight: bold">if</span> d[u] <span style="color: #666666">+</span> c(u, v) <span style="color: #666666">&lt;</span> d[v]:
       d[v] <span style="color: #666666">=</span> d[u] <span style="color: #666666">+</span> c(u, v)
 </pre></div>
-
   </section>
 
   <section class="main-section">
     <header>Steps</header>
     <p>
       <ol>
-        <li>Select a start vertex. </li>
-        <li>Compute the distance to its connected vertices.</li>
-        <li>Set the connected node with the shortest distance as the start point, and updates its neighbors.</li>
-        <li>After all the vertices are updated as the start point, end it.</li>
+        <li>Initialize distances from source to all vertices as infinite. </li>
+        <li>Relex each edge. (Same relexation as Dijkstra's). Do it for (v-1) times, where v is the number of vertices in given graph.</li>
+        <li>Relex again. If there is any change, there is a negtive circle in the graph.</li>
       </ol>
     </p>
   </section>
@@ -45,18 +42,15 @@
   <section class="main-section">
     <header>Analysis</header>
     <ul>
-      <li>Time complexity is O(n^2). For each vertex as the start point, we need to update all its neighbors. The worst scenario is that all vertices have n neighbors, where n is the total amount of vertices. </li>
-      <li>Dijkstra can work on both directed and non directed graphs.</li>
-      <li>If there is a negtive edge in the graph, it might not be correct.</li>
+      <li>Bellman-Ford can detect negtive circle. After we update the graph for v - 1 times, we do it for one more round. If there is any change in the graph, there must be a negtive circle in that graph.</li>
     </ul>
   </section>
-  
   
 
   <section class="main-section"> 
     <header>Related Problems</header>
-    <li><a href="https://leetcode.com/problems/cheapest-flights-within-k-stops/">Leetcode 787</a> Cheapest Flights Within K Stops</li>
-    <li><a href="https://leetcode.com/problems/network-delay-time/">Leetcode 743</a> Network Delay Time</li>
+    <li><a href="https://leetcode.com/problems/maximum-vacation-days/">Leetcode 568</a> Maximum Vacation Days</li>
+    <li><a href="https://leetcode.com/problems/minimize-malware-spread/">Leetcode 924</a> Minimize Malware Spread</li>
   </section>
 
 </main>
