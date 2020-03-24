@@ -39,6 +39,7 @@
   
   <section class="main-section">
     <header>Code</header>
+    <h4>InOrder</h4>
     <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">morris</span>(root):
     result <span style="color: #666666">=</span> []
     <span style="color: #008000; font-weight: bold">while</span> root:
@@ -61,6 +62,49 @@
     <span style="color: #008000; font-weight: bold">return</span> result
 </pre></div>
 
+<h4>PreOrder</h4>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">preorderTraversal</span>(root):
+    r <span style="color: #666666">=</span> []
+    <span style="color: #008000; font-weight: bold">while</span> root:
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> root<span style="color: #666666">.</span>left:
+            r<span style="color: #666666">.</span>append(root<span style="color: #666666">.</span>val)
+            root <span style="color: #666666">=</span> root<span style="color: #666666">.</span>right
+        <span style="color: #008000; font-weight: bold">else</span>:
+            pre <span style="color: #666666">=</span> root<span style="color: #666666">.</span>left
+            <span style="color: #008000; font-weight: bold">while</span> pre<span style="color: #666666">.</span>right <span style="color: #AA22FF; font-weight: bold">and</span> pre<span style="color: #666666">.</span>right <span style="color: #666666">!=</span> root:
+                pre <span style="color: #666666">=</span> pre<span style="color: #666666">.</span>right
+
+            <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> pre<span style="color: #666666">.</span>right:
+                r<span style="color: #666666">.</span>append(root<span style="color: #666666">.</span>val)
+                pre<span style="color: #666666">.</span>right <span style="color: #666666">=</span> root
+                root <span style="color: #666666">=</span> root<span style="color: #666666">.</span>left
+            <span style="color: #008000; font-weight: bold">else</span>:
+                root <span style="color: #666666">=</span> root<span style="color: #666666">.</span>right
+    <span style="color: #008000; font-weight: bold">return</span> r
+</pre></div>
+
+<h4>PostOrder</h4>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">postOrder</span>(root):
+    result <span style="color: #666666">=</span> []
+    <span style="color: #008000; font-weight: bold">while</span> root:
+        <span style="color: #008000; font-weight: bold">if</span> root<span style="color: #666666">.</span>right:
+            prev <span style="color: #666666">=</span> root<span style="color: #666666">.</span>right
+            <span style="color: #008000; font-weight: bold">while</span> prev<span style="color: #666666">.</span>left <span style="color: #AA22FF; font-weight: bold">and</span> prev<span style="color: #666666">.</span>left <span style="color: #666666">!=</span> root:
+                prev <span style="color: #666666">=</span> prev<span style="color: #666666">.</span>left
+                
+            <span style="color: #008000; font-weight: bold">if</span> prev<span style="color: #666666">.</span>left:
+                root <span style="color: #666666">=</span> root<span style="color: #666666">.</span>left
+            <span style="color: #008000; font-weight: bold">else</span>:
+                result<span style="color: #666666">.</span>append(root<span style="color: #666666">.</span>val)
+                prev<span style="color: #666666">.</span>left <span style="color: #666666">=</span> root
+                root <span style="color: #666666">=</span> root<span style="color: #666666">.</span>right
+        <span style="color: #008000; font-weight: bold">else</span>:
+            result<span style="color: #666666">.</span>append(root<span style="color: #666666">.</span>val)
+            root <span style="color: #666666">=</span> root<span style="color: #666666">.</span>left
+    <span style="color: #008000; font-weight: bold">return</span> result[::<span style="color: #666666">-1</span>]
+</pre></div>
   
   <section class="main-section"> 
     <header>Related Problems</header>
