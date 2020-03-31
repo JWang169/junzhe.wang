@@ -2,13 +2,13 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Morris Traversal</title>
+  <title>KMP</title>
   <link rel="stylesheet" href="../static/algos.css">
 
 </head>
 <body>
 <nav id="navbar">
-  <header>Morris Traversal</header>
+  <header>KMP</header>
   <ul>
     <li><a class="nav-link" href="../index.html">HOMEPAGE</a></li>
     <li><a class="nav-link" href="notes.html">Notes</a></li>
@@ -19,17 +19,16 @@
     <li><a class="nav-link" href="morris.html">Morris Traversal</a></li>
     <li><a class="nav-link" href="rabinKarp.html">Rabin Karp</a></li>
     <li><a class="nav-link" href="segmentTree.html">Rabin Karp</a></li>
-    <li><a class="nav-link" href="campusBikesII.html">Campus Bike Summary</a></li>
   </ul>
 </nav>
 
 <main id="main-doc">
   <section class="main-section">
-    <header>Introduction</header>
-    <p><strong>Morris traversal</strong> is a tree traversal algorithms that allows you to implement traversal without using stack or recursion. In this traversal, we use likes to link node with its predecessor. </p>
+    <header>KMP</header>
+    <p><strong>KMP(Knuth-Morris-Pratt)</strong>  is for pattern matching, including prefix, suffix, substring, etc. It can search for the pattern in linear time. If we do brute force, the time complexity will be O(m*n). If we do KMP, it will be O(m + n). The key step is to build the table for the pattern. </p>
   </section>
   <section class="main-section">
-    <header>Steps</header>
+    <header>The failure function</header>
     <p>Take inorder traversal for example.
       <ol>
         <li>Initialize the root as current node. </li>
