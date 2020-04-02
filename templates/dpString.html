@@ -23,19 +23,18 @@
     <li><a class="nav-link" href="dpString.html">DP String Summary</a></li>
   </ul>
 </nav>
-<h2>DP - String manipulation</h2>
-
 
 <main id="main-doc">
   <section  class="main-section">
-    <h3>Longest Repeating Substring <a href="https://leetcode.com/problems/longest-repeating-substring/">1062</a></h3>
-    <p></p>
-    <ul>
-      <li>n = len(S) + 1</li>
-      <li>初始条件: dp[i][j] = 0 </li>
-      <li>转移方程: dp[i][j] = dp[i - 1][j - 1] + 1</li>
-      <li>n^2</li>
-    </ul>
+    <header>Longest Repeating Substring <a href="https://leetcode.com/problems/longest-repeating-substring/">1062</a></header>
+    <p>
+      <ul>
+        <li>n = len(S) + 1</li>
+        <li>初始条件: dp[i][j] = 0 </li>
+        <li>转移方程: dp[i][j] = dp[i - 1][j - 1] + 1</li>
+        <li>n^2</li>
+      </ul>
+    </p>
     <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">longestRepeatingSubstring</span>(<span style="color: #008000">self</span>, S: <span style="color: #008000">str</span>) <span style="color: #666666">-&gt;</span> <span style="color: #008000">int</span>:
             n <span style="color: #666666">=</span> <span style="color: #008000">len</span>(S) <span style="color: #666666">+</span> <span style="color: #666666">1</span>
             dp <span style="color: #666666">=</span> [[<span style="color: #666666">0</span>] <span style="color: #666666">*</span> n <span style="color: #008000; font-weight: bold">for</span> _ <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n)]
