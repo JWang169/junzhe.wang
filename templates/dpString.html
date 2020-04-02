@@ -8,7 +8,7 @@
 </head>
 <body>
 <nav id="navbar">
-  <header>Morris Traversal</header>
+  <header>DP - Strings</header>
   <ul>
     <li><a class="nav-link" href="../index.html">HOMEPAGE</a></li>
     <li><a class="nav-link" href="notes.html">Notes</a></li>
@@ -25,13 +25,13 @@
 </nav>
 
 <main id="main-doc">
-  <section  class="main-section">
+  <section>
     <header>Longest Repeating Substring <a href="https://leetcode.com/problems/longest-repeating-substring/">1062</a></header>
     <p>
       <ul>
         <li>n = len(S) + 1</li>
         <li>初始条件: dp[i][j] = 0 </li>
-        <li>转移方程: dp[i][j] = dp[i - 1][j - 1] + 1</li>
+        <li>转移方程: dp[i][j] = dp[i - 1][j - 1] + 1 if S[i - 1] == S[j - 1] else 0</li>
         <li>n^2</li>
       </ul>
     </p>
@@ -51,14 +51,29 @@
 
   <section>
     <h3>Longest Palindromic Subsequence <a href="https://leetcode.com/problems/longest-palindromic-subsequence/">516</a></h3>
-    <p></p>
-    <ul>
-      <li>n = len(S) + 1</li>
-      <li>初始条件: dp[i][j] = 0 </li>
-      <li>转移方程: dp[i][j] = dp[i - 1][j - 1] + 1</li>
-      <li>n^2</li>
-    </ul>
-    
+    <p>这道题和 5 -longest palindromic substring 区别就是palindrome可以不连续。所以有了转移方程里面的else部分。<br>
+       从转移方程的顺序里面可以看到，对于i来说一定要先有i+1然后才有i，对于j来说要先有j-1然后才有j。所以才有了i和j的for循环的顺序。<br>
+       return的时候就是dp[0][n - 1]，因为return的是区间内的最长palindrome，从头到尾一定是最长。如果是substring就不一定是从头到尾了，就要用global result记录最大值。
+      <ul>
+        <li>n = len(S)</li>
+        <li>初始条件: dp[i][j] = 0 , dp[i][i] = 1</li>
+        <li>转移方程: dp[i][j] = dp[i - 1][j - 1] + 2 if S[i - 1] == S[j - 1] else max(dp[i - 1][j], dp[i][j - 1])</li>
+        <li>n^2</li>
+      </ul>
+    </p>
+    <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">longestPalindromeSubseq</span>(<span style="color: #008000">self</span>, s: <span style="color: #008000">str</span>) <span style="color: #666666">-&gt;</span> <span style="color: #008000">int</span>:
+        n <span style="color: #666666">=</span> <span style="color: #008000">len</span>(s)
+        dp <span style="color: #666666">=</span> [[<span style="color: #666666">0</span>] <span style="color: #666666">*</span> n <span style="color: #008000; font-weight: bold">for</span> _ <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n)]
+        <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">-1</span>, <span style="color: #666666">-1</span>):
+            dp[i][i] <span style="color: #666666">=</span> <span style="color: #666666">1</span>
+            <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i <span style="color: #666666">+</span> <span style="color: #666666">1</span>, n):
+                <span style="color: #008000; font-weight: bold">if</span> s[i] <span style="color: #666666">==</span> s[j]:
+                    dp[i][j] <span style="color: #666666">=</span> dp[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">+</span> <span style="color: #666666">2</span>
+                <span style="color: #008000; font-weight: bold">else</span>:
+                    dp[i][j] <span style="color: #666666">=</span> <span style="color: #008000">max</span>(dp[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j], dp[i][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>])
+        <span style="color: #008000; font-weight: bold">return</span> dp[<span style="color: #666666">0</span>][n <span style="color: #666666">-</span> <span style="color: #666666">1</span>]                
+      </pre>
+    </div>
   </section>
 </main>
 
