@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Morris Traversal</title>
+  <link rel="stylesheet" href="../static/algos.css">
+
+</head>
+<body>
+<nav id="navbar">
+  <header>Morris Traversal</header>
+  <ul>
+    <li><a class="nav-link" href="../index.html">HOMEPAGE</a></li>
+    <li><a class="nav-link" href="notes.html">Notes</a></li>
+    <li><a class="nav-link" href="note4java.html">Java</a></li>
+    <li><a class="nav-link" href="bellman.html">Bellman-Ford Algorithm</a></li>
+    <li><a class="nav-link" href="dijkstra.html">Dijstra's Algorithm</a></li>
+    <li><a class="nav-link" href="kmp.html">KMP</a></li>
+    <li><a class="nav-link" href="morris.html">Morris Traversal</a></li>
+    <li><a class="nav-link" href="rabinKarp.html">Rabin Karp</a></li>
+    <li><a class="nav-link" href="segmentTree.html">Segment Tree</a></li>
+    <li><a class="nav-link" href="campusBikesII.html">Campus Bike Summary</a></li>
+    <li><a class="nav-link" href="dpString.html">DP String Summary</a></li>
+  </ul>
+</nav>
+<h2>DP - String manipulation</h2>
+
+
+<main>
+  <section>
+    <h3>Longest Repeating Substring <a href="https://leetcode.com/problems/longest-repeating-substring/">1062</a></h3>
+    <p></p>
+    <ul>
+      <li>n = len(S) + 1</li>
+      <li>初始条件: dp[i][j] = 0 </li>
+      <li>转移方程: dp[i][j] = dp[i - 1][j - 1] + 1</li>
+      <li>n^2</li>
+    </ul>
+    <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">longestRepeatingSubstring</span>(<span style="color: #008000">self</span>, S: <span style="color: #008000">str</span>) <span style="color: #666666">-&gt;</span> <span style="color: #008000">int</span>:
+            n <span style="color: #666666">=</span> <span style="color: #008000">len</span>(S) <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+            dp <span style="color: #666666">=</span> [[<span style="color: #666666">0</span>] <span style="color: #666666">*</span> n <span style="color: #008000; font-weight: bold">for</span> _ <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n)]
+            result <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+            <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1</span>, n):
+                <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i <span style="color: #666666">+</span> <span style="color: #666666">1</span>, n):
+                    <span style="color: #008000; font-weight: bold">if</span> S[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">==</span> S[j <span style="color: #666666">-</span> <span style="color: #666666">1</span>]:
+                        dp[i][j] <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">+</span> <span style="color: #666666">1</span> 
+                        result <span style="color: #666666">=</span> <span style="color: #008000">max</span>(result, dp[i][j])        
+            
+            <span style="color: #008000; font-weight: bold">return</span> result 
+    </pre></div>
+
+  </section>
+</main>
+
+</body>
+</html>
