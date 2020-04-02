@@ -26,8 +26,8 @@
 <h2>DP - String manipulation</h2>
 
 
-<main>
-  <section>
+<main id="main-doc">
+  <section  class="main-section">
     <h3>Longest Repeating Substring <a href="https://leetcode.com/problems/longest-repeating-substring/">1062</a></h3>
     <p></p>
     <ul>
@@ -48,7 +48,18 @@
             
             <span style="color: #008000; font-weight: bold">return</span> result 
     </pre></div>
+  </section>
 
+  <section>
+    <h3>Longest Palindromic Subsequence <a href="https://leetcode.com/problems/longest-palindromic-subsequence/">516</a></h3>
+    <p></p>
+    <ul>
+      <li>n = len(S) + 1</li>
+      <li>初始条件: dp[i][j] = 0 </li>
+      <li>转移方程: dp[i][j] = dp[i - 1][j - 1] + 1</li>
+      <li>n^2</li>
+    </ul>
+    
   </section>
 </main>
 
