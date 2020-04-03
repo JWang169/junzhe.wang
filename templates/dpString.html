@@ -26,7 +26,7 @@
 
 <main id="main-doc">
   <section>
-    <h3>Longest Repeating Substring <a href="https://leetcode.com/problems/longest-repeating-substring/">1062</a></h3>
+    <h3><a href="https://leetcode.com/problems/longest-repeating-substring/">1062</a>Longest Repeating Substring </h3>
     <p>
       <ul>
         <li>n = len(S) + 1</li>
@@ -50,7 +50,7 @@
   </section>
 
   <section>
-    <h3>Longest Palindromic Subsequence <a href="https://leetcode.com/problems/longest-palindromic-subsequence/">516</a></h3>
+    <h3><a href="https://leetcode.com/problems/longest-palindromic-subsequence/">516</a>Longest Palindromic Subsequence </h3>
     <p>这道题和 5 -longest palindromic substring 区别就是palindrome可以不连续。所以有了转移方程里面的else部分。<br>
        从转移方程的顺序里面可以看到，对于i来说一定要先有i+1然后才有i，对于j来说要先有j-1然后才有j。所以才有了i和j的for循环的顺序。<br>
        return的时候就是dp[0][n - 1]，因为return的是区间内的最长palindrome，从头到尾一定是最长。如果是substring就不一定是从头到尾了，就要用global result记录最大值。
@@ -77,7 +77,7 @@
   </section>
 
   <section>
-    <h3>Delete Operation for Two Strings <a href="https://leetcode.com/problems/delete-operation-for-two-strings/">583</a></h3>
+    <h3><a href="https://leetcode.com/problems/delete-operation-for-two-strings/">583</a>Delete Operation for Two Strings </h3>
     <p>
       <ul>
         <li>dp[i][j]代表word1[:i]和word2[:j]变得相同需要的步数。</li>
@@ -106,7 +106,7 @@
   </section>
 
 <section>
-    <h3>Longest Common Subsequence <a href="https://leetcode.com/problems/longest-common-subsequence/">1143</a></h3>
+    <h3><a href="https://leetcode.com/problems/longest-common-subsequence/">1143</a>Longest Common Subsequence </h3>
     <p>
       这题和Delete Operation for Two Strings几乎一样。
     </p>
@@ -124,7 +124,7 @@
 </section>
 
 <section>
-    <h3>Longest Palindromic Substring <a href="https://leetcode.com/problems/longest-palindromic-substring/">5</a></h3>
+    <h3><a href="https://leetcode.com/problems/longest-palindromic-substring/">5</a>Longest Palindromic Substring </h3>
     <p>
       Palindrome...这题做第6次之前都不能一次写对..就再写一次 <br>
       OMG我竟然又写错了fook.
@@ -175,9 +175,43 @@
                         ma <span style="color: #666666">=</span> length 
         <span style="color: #008000; font-weight: bold">return</span> result
 </pre></div>
-
-
 </section>
+
+<section>
+    <h3><a href="https://leetcode.com/problems/interleaving-string/">97</a>Interleaving String</h3>
+    <p>做到这道题的时候我发现自己已经会了点了。。不用看以前的comment也能写出来个差不多了。
+      s3的前i个字符是s1的前个字符和s2的前k个字符交错形成的, dp[i][j]就是s1的前i个和s2的前j个能不能组成s3的前i+j个。
+    </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">isInterleave</span>(<span style="color: #008000">self</span>, s1: <span style="color: #008000">str</span>, s2: <span style="color: #008000">str</span>, s3: <span style="color: #008000">str</span>) <span style="color: #666666">-&gt;</span> <span style="color: #008000">bool</span>:
+        m, n <span style="color: #666666">=</span> <span style="color: #008000">len</span>(s1), <span style="color: #008000">len</span>(s2)
+        <span style="color: #008000; font-weight: bold">if</span> m <span style="color: #666666">+</span> n <span style="color: #666666">!=</span> <span style="color: #008000">len</span>(s3):
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">False</span>
+        f <span style="color: #666666">=</span> [[<span style="color: #008000">False</span>] <span style="color: #666666">*</span> (n <span style="color: #666666">+</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">for</span> _ <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(m <span style="color: #666666">+</span> <span style="color: #666666">1</span>)]
+        
+        
+        f[<span style="color: #666666">0</span>][<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #008000">True</span>
+        <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, m <span style="color: #666666">+</span> <span style="color: #666666">1</span>):
+            <span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, n <span style="color: #666666">+</span> <span style="color: #666666">1</span>):
+                <span style="color: #008000; font-weight: bold">if</span> i <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #AA22FF; font-weight: bold">and</span> j <span style="color: #666666">==</span> <span style="color: #666666">0</span>:
+                    <span style="color: #008000; font-weight: bold">continue</span>
+                <span style="color: #008000; font-weight: bold">if</span> j <span style="color: #666666">==</span> <span style="color: #666666">0</span>:
+                    f[i][j] <span style="color: #666666">=</span> f[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j] <span style="color: #AA22FF; font-weight: bold">and</span> s1[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">==</span> s3[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>]
+                    <span style="color: #008000; font-weight: bold">continue</span>
+                <span style="color: #008000; font-weight: bold">if</span> i <span style="color: #666666">==</span> <span style="color: #666666">0</span>:
+                    f[i][j] <span style="color: #666666">=</span> f[i][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #AA22FF; font-weight: bold">and</span> s2[j <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">==</span> s3[j <span style="color: #666666">-</span> <span style="color: #666666">1</span>]
+                    <span style="color: #008000; font-weight: bold">continue</span>
+            
+                <span style="color: #008000; font-weight: bold">if</span> (s2[j <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">==</span> s3[i <span style="color: #666666">+</span> j <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #AA22FF; font-weight: bold">and</span> f[i][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>]) <span style="color: #AA22FF; font-weight: bold">or</span> (s1[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">==</span> s3[i <span style="color: #666666">+</span> j <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #AA22FF; font-weight: bold">and</span> f[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j]):
+                    f[i][j] <span style="color: #666666">=</span> <span style="color: #008000">True</span>
+        <span style="color: #008000; font-weight: bold">return</span> f[<span style="color: #666666">-1</span>][<span style="color: #666666">-1</span>]
+</pre></div>
+</section>
+
+
+
+
+
+
 </main>
 
 
