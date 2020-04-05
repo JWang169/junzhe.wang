@@ -8,7 +8,7 @@
 </head>
 <body>
 <nav id="navbar">
-  <header>DP - Strings</header>
+  <header>DFS + Memoization Search</header>
   <ul>
     <li><a class="nav-link" href="../index.html">HOMEPAGE</a></li>
     <li><a class="nav-link" href="notes.html">Notes</a></li>
@@ -27,14 +27,24 @@
 
 <main id="main-doc">
   <section>
-    <h3><a href="https://leetcode.com/problems/longest-repeating-substring/">1062</a>Longest Repeating Substring </h3>
+    <h3>Intro</h3>
     <p>
-      <ul>
-        <li>n = len(S) + 1</li>
-        <li>初始条件: dp[i][j] = 0 </li>
-        <li>转移方程: dp[i][j] = dp[i - 1][j - 1] + 1 if S[i - 1] == S[j - 1] else 0</li>
-        <li>n^2</li>
-      </ul>
+    Memoization和recursive solution很像，这就是为啥你这两个学的都不好。区别就是in memoization we maintain a lookup table where we store solutions to the subproblems that we have previously solved. In stead solving the same subproblems multiple times, we solve them once and store the answers for reuse later. 要注意的是list不能dictionary的key，所以很多解法里面都有一步是tuple(choices)。
+    <ol>
+      <li>Checks whether key in seen.</li>
+      <li>If key in seen: return seen[key]</li>
+      <li>If key not in seen, check if key satisfies the base condition. 
+        <li>If key satisfies the condition, we store the result by updating the seen table, and return the same result.</li>
+        <li>If key doesn't safisfy the condition, dfs() splits the key into subproblems and recursively calls itself to solve them. After the recursive calls return, dfs() combines the solutions to subproblems, updates the lookup table, and returns the solution for problem 'key'. </li>
+      </li>
+    </ol>
+   </p>
+  </section>
+
+  <section>
+    <h3><a href="https://leetcode.com/problems/word-break-ii/">140</a> Word BreakII </h3>
+    <p>
+      这是我连续第三天重做Word break II了，感觉自己是个弱智。
     </p>
     <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">longestRepeatingSubstring</span>(<span style="color: #008000">self</span>, S: <span style="color: #008000">str</span>) <span style="color: #666666">-&gt;</span> <span style="color: #008000">int</span>:
             n <span style="color: #666666">=</span> <span style="color: #008000">len</span>(S) <span style="color: #666666">+</span> <span style="color: #666666">1</span>
