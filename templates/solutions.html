@@ -8,45 +8,55 @@
 </head>
 <body>
     <div id="gridcontainer">
-        <div id="h-container">
-      <div><h1>Expecto Patronum</h1></div>  
-    </div>
-    <div id="n-container">
-      <nav id="navbar">
-        <ul clas="currentnav">
-          <header></header>
-          <a class="nav-link" href="../index.html">HOMEPAGE</a>
-          <a class="nav-link" href="notes.html">Notes</a>
-          <a class="nav-link first" href="#lc95" rel="internal"><li>95.Unique Binary Search Trees II</li></a>
-          <a class="nav-link" href="#lc96" rel="internal"><li>96.Unique Binary Search Trees II</li></a>
+      <div id="h-container">
+        <div><h1>Expecto Patronum</h1></div>  
+      </div>
 
-        </ul>
-      </nav>
-    </div>
-    <div id="m-container">
-      <main id="main-doc">
-        
+      <div id="n-container">
+        <nav id="navbar">
+          <ul clas="currentnav">
+            <a class="nav-link" href="notes.html">BACK</a>
+            <a class="nav-link first" href="#lc95" rel="internal"><li>95.Unique Binary Search Trees II</li></a>
+            <a class="nav-link" href="#lc96" rel="internal"><li>96.Unique Binary Search Trees</li></a>
+          </ul>
+        </nav>
+      </div>
+
+      <div id="m-container">
+        <main id="main-doc">
+          <section class="main-section" id="lc95" name="lc95">
+            <header><h2>Unique Binary Search Trees II</h2></header>
+            <p>为什么你连Cartalan Number都不知道。说得就像你知道了这题就能做出来了一样。</>
+            <p>
+              n=1，BST 只有一种情况， root.val=1。 <br>
+              n=2, BST 两种情况，root.val = 1, root.right.val = 2; root.val=2, root.left.val = 1.
+              这么想下去毫不intuitive。
+            </p>
+            <p>
+              所以就dp了，我也不知道他们是怎么想到dp的。每个BST的可能性就是左子树可能的情况 * 右子树可能的情况。<b>dp[i]其实代表的是当这个树有n个点的时候，有多少种组合方法。</b>n的大小并不是重点。比如dp[6]代表的是有六个不同的数，这六个数能组成多少种BST。 
+              <ul>
+                <li>dp[2] 就是root.val=1的情况加上root.val=2的情况，dp[2] = dp[0] * dp[1] + dp[1] * dp[0] 
+              dp[0] * dp[1]代表root.val=1的时候,root.left可以有0个数字, root.right可以有一个数字; 
+              dp[1] * dp[0]代表root.val=2的时候，root.left可以有一个数字，root.right可以有0个数字</li>
+              </ul>
+
+              
+              <br>
 
 
-        <section class="main-section" id="lc95" name="lc95">
-          <header><h2>Unique Binary Search Trees II</h2></header>
-          <P>为什么你连Cartalan Number都不知道。说得就像你知道了这题就能做出来了一样</P>
-          
-        </section>
+            </p>
+          </section>
 
 
-        <section class="main-section" id="lc96" name="lc96">
-          <header><h2>Unique Binary Search Trees</h2></header>
-          <P>为什么你的html越来越多。还不是因为你都不会的题越来越多</P>
-          
-        </section>       
+          <section class="main-section" id="lc96" name="lc96">
+            <header><h2>Unique Binary Search Trees</h2></header>
+            <p>为什么你的html越来越多。还不是因为你都不会的题越来越多。都怪你那张帅脸。</p>
+            
+          </section>       
 
-
-
-
-      </main>
-    </div>
+        </main>
+      </div>
     
-  </div>
+    </div>
 </body>
 </html>
