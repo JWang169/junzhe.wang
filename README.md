@@ -6,10 +6,10 @@ Junzhe's Homepage - Github pages
 ----
 ### [Resume](https://jwang169.github.io/junzhe.wang/templates/resume.html)
 ----
-### [Conversation](https://jwang169.github.io/junzhe.wang/templates/cmd.html)
+### [Fake Command Line](https://jwang169.github.io/junzhe.wang/templates/cmd.html)
 ----
-
-
-#### Notes :
+#### [Leetcode Solutions](https://github.com/JWang169/Leetcode)
+----
+#### [Notes](https://jwang169.github.io/junzhe.wang/templates/notes.html)
+----
 #### [Java](https://jwang169.github.io/junzhe.wang/templates/note4java.html)
-#### [Mix](https://jwang169.github.io/junzhe.wang/templates/notes.html)
