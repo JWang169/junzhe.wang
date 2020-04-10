@@ -3,60 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <title>Expecto Patronum</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
-  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="../static/algos.css">
+
 </head>
 <body>
-    <div id="gridcontainer">
-      <div id="h-container">
-        <div><h1>Expecto Patronum</h1></div>  
-      </div>
+<nav id="navbar">
+  <ul>
+    <li><a class="nav-link" href="notes.html">BACK</a></li>
+    <li><a class="nav-link" href="#lc95" rel="internal">95. Unique Binary Search Trees II</a></li>
+    <li><a class="nav-link" href="#lc96" rel="internal">96. Unique Binary Search Trees</a></li>
+    <li><a class="nav-link" href="#lc121" rel="internal">121. Best Time to Buy and Sell Stock</a></li>
+    <li><a class="nav-link" href="#lc1131" rel="internal">1131. Maximum of Absolute Value Expression</a></li>
+    <li><a class="nav-link" href="#lc1014" rel="internal">1014. Best Sightseeing Pair</a></li>
+  </ul>
+</nav>
 
-      <div id="n-container">
-        <nav id="navbar">
-          <ul clas="currentnav">
-            <a class="nav-link" href="notes.html">BACK</a>
-            <a class="nav-link first" href="#lc95" rel="internal"><li>95.Unique Binary Search Trees II</li></a>
-            <a class="nav-link" href="#lc96" rel="internal"><li>96.Unique Binary Search Trees</li></a>
-          </ul>
-        </nav>
-      </div>
+      
+<main id="main-doc">
+  <section class="main-section" id="lc95" name="lc95">
+  <header><h3>95. Unique Binary Search Trees II</h3></header>
+    <p>为什么你连Cartalan Number都不知道。说得就像你知道了这题就能做出来了一样。</>
+    <p>
+      n=1，BST 只有一种情况， root.val=1。 <br>
+      n=2, BST 两种情况，root.val = 1, root.right.val = 2; root.val=2, root.left.val = 1.
+      这么想下去毫不intuitive。
+    </p>
+    <p>
+      所以就dp了，我也不知道他们是怎么想到dp的。每个BST的可能性就是左子树可能的情况 * 右子树可能的情况。<b>dp[i]其实代表的是当这个树有n个点的时候，有多少种组合方法。</b>n的大小并不是重点。比如dp[6]代表的是有六个不同的数，这六个数能组成多少种BST。
+    </p>
+    <p>
+      dp[2]就是当这个树有2个点的时候有多少种bst，root.val=1的情况加上root.val=2的情况
+      <li>dp[2] = dp[0] * dp[1] + dp[1] * dp[0]</li>
+      <li>dp[0] * dp[1]代表root.val=1的时候,root.left可以有0个数字, root.right可以有一个数字; 
+      </li>
+      <li>dp[1] * dp[0]代表root.val=2的时候，root.left可以有一个数字，root.right可以有0个数字</li>
+    </p>
+  <br>
+  </section>
 
-      <div id="m-container">
-        <main id="main-doc">
-          <section class="main-section" id="lc95" name="lc95">
-            <header><h2>Unique Binary Search Trees II</h2></header>
-            <p>为什么你连Cartalan Number都不知道。说得就像你知道了这题就能做出来了一样。</>
-            <p>
-              n=1，BST 只有一种情况， root.val=1。 <br>
-              n=2, BST 两种情况，root.val = 1, root.right.val = 2; root.val=2, root.left.val = 1.
-              这么想下去毫不intuitive。
-            </p>
-            <p>
-              所以就dp了，我也不知道他们是怎么想到dp的。每个BST的可能性就是左子树可能的情况 * 右子树可能的情况。<b>dp[i]其实代表的是当这个树有n个点的时候，有多少种组合方法。</b>n的大小并不是重点。比如dp[6]代表的是有六个不同的数，这六个数能组成多少种BST。 
-              <ul>
-                <li>dp[2] 就是root.val=1的情况加上root.val=2的情况，dp[2] = dp[0] * dp[1] + dp[1] * dp[0] 
-              dp[0] * dp[1]代表root.val=1的时候,root.left可以有0个数字, root.right可以有一个数字; 
-              dp[1] * dp[0]代表root.val=2的时候，root.left可以有一个数字，root.right可以有0个数字</li>
-              </ul>
+  <section class="main-section" id="lc96" name="lc96">
+    <header><h3>96. Unique Binary Search Trees</h3></header>
+    <p>为什么你的html越来越多。还不是因为你都不会的题越来越多。都怪你那张帅脸。</p>
+    <br>
+  </section>     
 
-              
-              <br>
-
-
-            </p>
-          </section>
-
-
-          <section class="main-section" id="lc96" name="lc96">
-            <header><h2>Unique Binary Search Trees</h2></header>
-            <p>为什么你的html越来越多。还不是因为你都不会的题越来越多。都怪你那张帅脸。</p>
-            
-          </section>       
-
-        </main>
-      </div>
+  <section class="main-section" id="lc121" name="lc121">
+    <header><h3>121. Best Time to Buy and Sell Stock</h3></header>
+    <p>这三道题是都是一个思路，所以都不会做。 为了做后面两道题，就不能用greedy的思路做121。</p>
+    <p>每天只有buy和sell两种状态，先有buy才有sell. 当天买损失-prices[i], 当天卖增加prices[i], 当天总收益: buy + prices[i]。 所以只要考虑当天买和之前买哪个收益高， 当天卖和之前卖哪个收益高即可。<br>
+    之前是buy和sell的顺序没想清楚。 <b>因为sell更新的顺序在buy之后，所以一定是optimal。</b> 
+      <ul>
+        <li>buy = max(buy, -prices[i])</li>
+        <li>sell = max(sell, prices[i] + buy) </li>
+      </ul>
+    </p>
+    <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">maxProfit</span>(<span style="color: #008000">self</span>, prices):
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> prices:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>
+        buy, sell <span style="color: #666666">=</span> <span style="color: #666666">-</span>prices[<span style="color: #666666">0</span>], <span style="color: #666666">0</span>
+        <span style="color: #008000; font-weight: bold">for</span> price <span style="color: #AA22FF; font-weight: bold">in</span> prices[<span style="color: #666666">1</span>:]:
+            buy <span style="color: #666666">=</span> <span style="color: #008000">max</span>(buy, <span style="color: #666666">-</span>price)
+            sell <span style="color: #666666">=</span> <span style="color: #008000">max</span>(sell, price <span style="color: #666666">+</span> buy)
+        <span style="color: #008000; font-weight: bold">return</span> sell
+</pre></div>
+    <br>
+    </section> 
+    <section class="main-section" id="lc1014" name="lc1014">
+      <header><h3>1014. Best Sightseeing Pair</h3></header>
+      <p>A[i] + A[j] + i - j可以转换成 A[i] + i + (A[j] - j). </p>
+      <p>这道题可以用和stock一样的思路做。唯一不同的是这道题现有j，后有i，所以更新顺序也是update j， then update i</p>
+      <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">  <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">maxScoreSightseeingPair</span>(<span style="color: #008000">self</span>, A):
+      first, second <span style="color: #666666">=</span> <span style="color: #666666">-</span>sys<span style="color: #666666">.</span>maxsize, <span style="color: #666666">0</span>
+      <span style="color: #008000; font-weight: bold">for</span> i, num <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(A):
+          second <span style="color: #666666">=</span> <span style="color: #008000">max</span>(second, num <span style="color: #666666">-</span> i <span style="color: #666666">+</span> first)
+          first <span style="color: #666666">=</span> <span style="color: #008000">max</span>(first, num <span style="color: #666666">+</span> i)
+      <span style="color: #008000; font-weight: bold">return</span> second   
+</pre></div>
+      
     
-    </div>
+    </section>       
+</main>
+
 </body>
 </html>
