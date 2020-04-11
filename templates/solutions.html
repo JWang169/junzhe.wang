@@ -15,6 +15,7 @@
     <li><a class="nav-link" href="#lc121" rel="internal">121. Best Time to Buy and Sell Stock</a></li>
     <li><a class="nav-link" href="#lc1131" rel="internal">1131. Maximum of Absolute Value Expression</a></li>
     <li><a class="nav-link" href="#lc1014" rel="internal">1014. Best Sightseeing Pair</a></li>
+    <li><a class="nav-link" href="#lc123" rel="internal">123. Best Time to Buy and Sell Stock III</a></li>
   </ul>
 </nav>
 
@@ -85,10 +86,31 @@
           second <span style="color: #666666">=</span> <span style="color: #008000">max</span>(second, num <span style="color: #666666">-</span> i <span style="color: #666666">+</span> first)
           first <span style="color: #666666">=</span> <span style="color: #008000">max</span>(first, num <span style="color: #666666">+</span> i)
       <span style="color: #008000; font-weight: bold">return</span> second   
+</pre></div>   
+    </section>
+
+<section class="main-section" id="lc123" name="lc123">
+  <header><h3>123. Best Time to Buy and Sell Stock III</h3></header>
+  <p>本质上说（非常本质）123和121是一个思路，一个可能永远都不会懂的思路。 123就是用两次121的方法。第二次的买卖需要加上第一次的利润。两次买卖是一体的，不能分开看。第一次购买始终买当前所有里面price最小的那一次（最便宜的一次buy），利润肯定为负，但是负的最少。第一次买出的时候就是可能的最大利润。到这为止，和121的思路完全一样。第二次买入的判断条件是buy2 < sell1 - price. 注意第二次的利润已经包含第一次的了。所以buy2=sell1-price</p>
+  <p>还是并不能很顺畅的想出来。</p>
+    <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">maxProfit</span>(<span style="color: #008000">self</span>, prices: List[<span style="color: #008000">int</span>]) <span style="color: #666666">-&gt;</span> <span style="color: #008000">int</span>:
+        buy1, sell1 <span style="color: #666666">=</span> <span style="color: #666666">-</span>sys<span style="color: #666666">.</span>maxsize, <span style="color: #666666">0</span>
+        buy2, sell2 <span style="color: #666666">=</span> <span style="color: #666666">-</span>sys<span style="color: #666666">.</span>maxsize, <span style="color: #666666">0</span>
+        <span style="color: #008000; font-weight: bold">for</span> price <span style="color: #AA22FF; font-weight: bold">in</span> prices:
+            <span style="color: #008000; font-weight: bold">if</span> buy1 <span style="color: #666666">&lt;</span> <span style="color: #666666">-</span>price:
+                buy1 <span style="color: #666666">=</span> <span style="color: #666666">-</span>price
+            <span style="color: #008000; font-weight: bold">if</span> sell1 <span style="color: #666666">&lt;</span> buy1 <span style="color: #666666">+</span> price:
+                sell1 <span style="color: #666666">=</span> buy1 <span style="color: #666666">+</span> price
+            <span style="color: #008000; font-weight: bold">if</span> buy2 <span style="color: #666666">&lt;</span> sell1 <span style="color: #666666">-</span> price:
+                buy2 <span style="color: #666666">=</span> sell1 <span style="color: #666666">-</span> price
+            <span style="color: #008000; font-weight: bold">if</span> sell2 <span style="color: #666666">&lt;</span> buy2 <span style="color: #666666">+</span> price:
+                sell2 <span style="color: #666666">=</span> buy2 <span style="color: #666666">+</span> price
+        
+        <span style="color: #008000; font-weight: bold">return</span> sell2
+        
 </pre></div>
-      
-    
-    </section>       
+</section>
+
 </main>
 
 </body>
