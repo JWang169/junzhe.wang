@@ -49,6 +49,13 @@
 
   <section class="main-section" id="lc121" name="lc121">
     <header><h3>121. Best Time to Buy and Sell Stock</h3></header>
+    <p>刚刚看了一个讲的很好的帖子（只看这一段就够了，👇之前写的都没有这个好）： <a href="https://blog.csdn.net/mebiuw/article/details/52764247"></a>  </p>
+    <ol>
+      <li>保存已经遍历过的地方的最小售价</li>
+      <li>判断当前位置的售价和当前的最小售价差（就是当前位置的最大利润）是否超过全局的最大利润，超过了就更新</li>
+      <li>遍历完成之后返回全局的最大利润</li>
+    </ol> 
+
     <p>这三道题是都是一个思路，所以都不会做。 为了做后面两道题，就不能用greedy的思路做121。</p>
     <p>每天只有buy和sell两种状态，先有buy才有sell. 当天买损失-prices[i], 当天卖增加prices[i], 当天总收益: buy + prices[i]。 所以只要考虑当天买和之前买哪个收益高， 当天卖和之前卖哪个收益高即可。<br>
     之前是buy和sell的顺序没想清楚。 <b>因为sell更新的顺序在buy之后，所以一定是optimal。</b> 
