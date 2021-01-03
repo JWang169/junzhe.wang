@@ -20,32 +20,24 @@ var initDot = document.getElementById("loading");
        var $identityDiv = $("#identity-results");
        var $name = "NAME: JUNZHE WANG";
        var $alias = "ALSO KNOWN AS: JOEY";
-       var $intern = "RISK MANAGEMENT AND QUANTITATIVE TRADING RESEARCH INTERN AT MOORE CAPITAL MANAGEMENT";
-       var $ta = "TEACHING ASSISTANT FOR NATURAL LANGUAGE PROCESSING AT STEVENS INSTITUTE OF TECHNOLOGY";
+       var $intern = "FIRST-YEAR PHD STUDENT IN COMPUTER SCIENCE";
+       var $ta = "RESEARCH ASSISTANT IN UNIVERSITY OF SOUTH CAROLINA";
        // var $occupation  = "AREAS: FULL-STACK DEVELOPMENT | MACHINE LEARNING ENGINEER | QUANTITATIVE RESEARCH";
-       var $Education = "EDUCATION: MASTER STUDENT IN COMPUTER SCIENCE | GRADUATING IN MAY 2020";
-         var $Stevens = "STEVENS INSTITUTE OF TECHNOLOGY: MASTER OF SCIENCE IN COMPUTER SCIENCE | MAY 2020";
-         var $NUAA = "NANJING UNIVERSITY OF AERONAUTICS AND ASTRONAUTICS: BACHELOR OF ENGINEERING IN MECHANICAL ENGINEERING | JUNE 2015";
+       var $Education = "EDUCATION"
+         var $Uofsc = "PH.D., COMPUTER SCIENCE, UNIVERSITY OF SOUTH CAROLINA, EXPECTED 05/2024";
+         var $Stevens = "M.S., COMPUTER SCIENCE, STEVENS INSTITUTE OF TECHNOLOGY, 05/2020";
+         var $NUAA = "B.E., MECHANICAL ENGINEERING, NANJING UNIVERSITY OF AERONAUTICS AND ASTRONAUTICS, 06/2015";
 
+       var $Fullstack  = "EXPERIENCE";
+         var $CSSFrameworks = "RESEARCH ASSISTANT IN SYSTEMS AND SOFTWARE SECURITY RESEARCH LAB @ UNIVERSITY OF SOUTH CAROLINA, 08/2020 - ";
+         var $JSLibs = "TEACHING ASSISTANT FOR NATURAL LANGUAGE PROCESSING (CS584) @ STEVENS INSTITUTE OF TECHNOLOGY, 01/2020 - 05/2020";
+         var $JSFrameworks = "INTERN IN QUANTITATIVE TRADING AND RISK MANAGEMENT @ MOORE CAPITAL MANAGEMENT, 05/2019 - 03/2020";
+         var $PYFramework = "GRADUATE ASSISTANT @ STEVENS INSTITUTE OF TECHNOLOGY, 10/2018 - 05/2019" 
+         var $JAVAFramework = "ELECTROMECHANICAL ENGINEER @ AVIC, 08/2015 - 08/2017";
 
-       var $Fullstack  = "FULL-STACK WEB DEVELOPMENT CORE: HTML | CSS | JAVASCRIPT | PYTHON | JAVA";
-         var $CSSFrameworks = "CSS FRAMEWORKS: BOOTSTRAP | SEMANTIC UI";
-         var $JSLibs = "JAVASCRIPT LIBRARIES: JQUERY | NODE.JS | VUE.JS";
-         var $JSFrameworks = "JAVASCRIPT FRAMEWORKS: ANGULARJS | EXPRESS | REACT ";
-         var $PYFramework = "PYTHON FRAMEWORK: DJANGO";
-         var $JAVAFramework = "JAVA FRAMEWORK: SPRING";
-         var $DATAbase = "DATABASE: MONGODB | SQLITE | POSTGRESQL";
-
-       var $Natural = "NATURAL LANGUAGE PROCESSING";
-         var $Tasks = "TASKS: TEXT CLASSIFICATION | MACHINE TRANSLATION | NATURAL LANGUAGE GENERATION";
-         var $Libraries = "LIBRARYIES: KERAS | NLTK| SCIKIT-LEARN | TENSORFLOW | ";
-         var $NNetworks = "NEURAL NETWORK ARCHITECTURE: CNN | GRU | LSTM";
-
-
-       var $Mobile = "IOS DEVELOPMENT";
-         var $Tasks = "TASKS: TEXT CLASSIFICATION | MACHINE TRANSLATION | NATURAL LANGUAGE GENERATION";
-         var $Libraries = "LIBRARIES: KERAS | NLTK| SCIKIT-LEARN | TENSORFLOW";
-         var $NNetworks = "NEURAL NETWORK ARCHITECTURE: CNN | GRU | LSTM";
+       var $Natural = "RESEARCH INTERESTS";
+         var $Tasks = "IOT SECURITY";
+         var $Libraries = "BINARY CODE ANALYSIS";
 
       function initIdentityResults(i){
           $("#message").addClass("sign cursor").text(message.substring(0, i));
@@ -136,6 +128,19 @@ var initDot = document.getElementById("loading");
                         }, 8);
                      }else{
                         $("#education").removeClass("cursor");
+                        setTimeout(function() {
+                           initUofsc(0);
+                        }, 500);
+                     }
+            }
+            function initUofsc(i){
+               $("#uofsc").addClass("sign cursor").text($Uofsc.substring(0, i));
+                     if(i < $Uofsc.length){
+                        setTimeout(function(){
+                           initUofsc(i + 1);
+                        }, 8);
+                     }else{
+                        $("#uofsc").removeClass("cursor");
                         setTimeout(function() {
                            initStevens(0);
                         }, 500);
@@ -243,19 +248,6 @@ var initDot = document.getElementById("loading");
                   }else{
                      $('#java-framework').removeClass("cursor");
                         setTimeout(function() {
-                           initDATAbase(0);
-                        }, 500);
-                  }
-            }
-            function initDATAbase(i){
-               $('#database').addClass("sign cursor").text($DATAbase.substring(0, i));
-                  if(i < $DATAbase.length){
-                     setTimeout(function(){
-                         initDATAbase(i + 1);
-                     }, 8);
-                  }else{
-                     $('#database').removeClass("cursor");
-                     setTimeout(function() {
                            initNatural(0);
                         }, 500);
                   }
